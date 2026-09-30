@@ -44,11 +44,14 @@ in the deployment repository.
 
 ## Other nodes
 
-Zakura 1.5.1 already depends on this exact verifier. Zebra requires a separate
-candidate build and agreement/invalid-block qualification before any change.
-Zero's C++ verifier cannot use this Rust dependency directly; evaluate a
-native port or a separately reviewed FFI integration with differential tests
-and workload measurements. Do not infer node-wide validation gains from the
-relay microbenchmark.
+Zakura 1.5.1 already depends on this exact verifier. Zebra 6.4.2 uses upstream
+`equihash 0.3`, with the same 108-byte input and 32-byte nonce call boundary.
+ShieldedLabs Zero v29 (7e1b37d), in its `zebra/` subtree, also uses upstream
+`equihash 0.3` at that same Rust call boundary. Both are feasible follow-on
+candidates, but need their own 0.3 baseline comparison and qualified builds. Keep at least one unchanged full-node implementation as an
+independent agreement reference during each candidate experiment. Run
+historical/malformed-input differential checks, mainnet acceptance agreement,
+and invalid-block rejection before a node rollout. Do not infer node-wide
+validation gains from the relay microbenchmark.
 
 Upstream: https://github.com/zakura-core/common/pull/514
