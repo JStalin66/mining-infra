@@ -89,6 +89,11 @@ pub fn mainnet_raw_block() -> Vec<u8> {
     block
 }
 
+/// Serialized mainnet headers sampled from genesis through height 3501638.
+/// Captured via Zebra getblockhash/getblockheader on 2026-09-30.
+pub const EQUIHASH_MAINNET_HEADERS: &str =
+    include_str!("../testdata/equihash_mainnet_headers.json");
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -109,8 +114,3 @@ mod tests {
         assert!(mainnet_raw_block().len() > mainnet_serialized_header().len());
     }
 }
-
-/// Serialized mainnet headers sampled from genesis through height 3501638.
-/// Captured via Zebra getblockhash/getblockheader on 2026-09-30.
-pub const EQUIHASH_MAINNET_HEADERS: &str =
-    include_str!("../testdata/equihash_mainnet_headers.json");
