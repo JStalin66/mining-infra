@@ -6,7 +6,7 @@ license.workspace = true
 description = "Equihash solution validation and difficulty management for Zcash mining"
 
 [dependencies]
-equihash = { workspace = true }
+equihash-verifier.workspace = true
 thiserror.workspace = true
 tracing.workspace = true
 tokio.workspace = true
@@ -15,6 +15,8 @@ tokio.workspace = true
 zcash-pool-common = { path = "../zcash-pool-common" }
 
 [dev-dependencies]
+serde_json.workspace = true
+equihash.workspace = true
 zcash-pool-common = { path = "../zcash-pool-common", features = ["test-support"] }
 zcash-mining-protocol = { path = "../zcash-mining-protocol" }
 zcash-template-provider = { path = "../zcash-template-provider" }
@@ -22,3 +24,7 @@ tokio = { workspace = true, features = ["test-util", "macros", "rt-multi-thread"
 hex.workspace = true
 tracing-subscriber.workspace = true
 proptest = "1.4"
+
+[[bench]]
+name = "equihash_verify"
+harness = false

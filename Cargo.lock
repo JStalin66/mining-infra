@@ -3343,6 +3343,7 @@ dependencies = [
  "tokio-test",
  "tracing",
  "tracing-subscriber",
+ "zakura-equihash",
  "zcash-equihash-validator",
  "zcash-pool-common",
  "zcash_primitives",
@@ -4582,6 +4583,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "zakura-equihash"
+version = "2.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f4675e3d944e09566e4983c26baa6a25e62441b06aeefc2ebc477b7f840d9bc7"
+dependencies = [
+ "blake2b_simd",
+ "corez",
+ "document-features",
+]
+
+[[package]]
 name = "zcash-coinbase"
 version = "0.1.0"
 dependencies = [
@@ -4600,10 +4612,12 @@ dependencies = [
  "equihash 0.2.2",
  "hex",
  "proptest",
+ "serde_json",
  "thiserror 2.0.18",
  "tokio",
  "tracing",
  "tracing-subscriber",
+ "zakura-equihash",
  "zcash-mining-protocol",
  "zcash-pool-common",
  "zcash-template-provider",
