@@ -162,7 +162,7 @@ impl PowValidator for EquihashPowValidator {
         let solution = &header[solution_start..solution_start + EQUIHASH_SOLUTION_SIZE];
 
         // (1) Equihash solution validity.
-        match equihash::is_valid_solution(EQUIHASH_N, EQUIHASH_K, input, nonce, solution) {
+        match equihash_verifier::is_valid_solution(EQUIHASH_N, EQUIHASH_K, input, nonce, solution) {
             Ok(()) => match header_meets_stated_target(header) {
                 // (2) Hash-to-target. Without this a valid-but-trivial solution
                 // would be forwarded into the mesh for free.

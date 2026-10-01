@@ -28,7 +28,10 @@ tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 hex = "0.4"
 blake2b_simd = "1.0"
 byteorder = "1.5"
+# Retain the existing CPU solver and the compatibility-test oracle.
 equihash = "0.2"
+# Verification-only optimization, shared with deployed Zakura 1.5.1.
+equihash-verifier = { package = "zakura-equihash", version = "=2.1.0" }
 sha2 = "0.10"
 # Zcash transaction parsing + ZIP-244 txid/auth-digest (for short_id-ing block
 # transactions the tx cache missed). `circuits`/`multicore` (halo2 proving) are

@@ -1,6 +1,6 @@
 //! Equihash solution validator
 //!
-//! Wraps the `equihash` crate to provide verification for Zcash's (200,9) parameters.
+//! Wraps the pinned `zakura-equihash` verifier to provide verification for Zcash's (200,9) parameters.
 
 use crate::error::{Result, ValidationError};
 use tracing::{debug, trace};
@@ -75,7 +75,7 @@ impl EquihashValidator {
         let input = &header[..108];
         let nonce = &header[108..140];
 
-        equihash::is_valid_solution(self.n, self.k, input, nonce, solution)
+        equihash_verifier::is_valid_solution(self.n, self.k, input, nonce, solution)
             .map_err(|e| ValidationError::InvalidSolution(format!("{:?}", e)))?;
 
         debug!("Equihash solution verified successfully");
