@@ -1,5 +1,5 @@
-# 1.88 = let-chains stabilization floor (zcash-template-provider uses RFC 2497 let-chains); CI floats stable, this pin is intentional.
-FROM rust:1.88-slim-bookworm AS builder
+# Zakura Equihash verification requires Rust 1.91; CI floats stable.
+FROM rust:1.91-slim-bookworm AS builder
 RUN apt-get update && apt-get install -y --no-install-recommends \
     pkg-config \
     libssl-dev \
